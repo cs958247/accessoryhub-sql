@@ -1,0 +1,1 @@
+(async()=>{const token=localStorage.getItem("accessoryhub_token");if(!token){location.href="register.html";return}const r=await fetch("/api/me",{headers:{Authorization:"Bearer "+token}});if(!r.ok){location.href="register.html";return}const d=await r.json();document.getElementById("successText").textContent=`Здравствуйте, ${d.user.name}! Ваш аккаунт создан.`})();
